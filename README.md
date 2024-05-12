@@ -4,6 +4,13 @@
 # og-protocol-services
 Repo with public services for OG: kv, RPC, storage-node, peers, snapshots etc
 
+#### Official links:
+- 0G Testnet Newton Onboarding: [https://tinyurl.com/4eyjk5fe](https://tinyurl.com/4eyjk5fe)
+- 0G gitbook/docs: [https://zerogravity.gitbook.io/0g-doc](https://zerogravity.gitbook.io/0g-doc/)
+- OG Github repo: [https://github.com/0glabs](https://github.com/0glabs)
+- 0G Youtube Channel: [https://www.youtube.com/@0G_Labs](https://www.youtube.com/@0G_Labs)
+- 0G Faucet Link: [https://faucet.0g.ai](https://faucet.0g.ai/)
+- 0G Scan: [https://scan-testnet.0g.ai](https://scan-testnet.0g.ai/)
 
 #### Update peers
 ```
