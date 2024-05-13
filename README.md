@@ -33,10 +33,10 @@ This section details the specific configuration parameters set for the OG Servic
 ## Access Points
 Services provide various endpoints for access and interaction through different protocols:
 
-- **RPC**: [rpc-og-testnet]()
-- **REST API**: [api-og-testnet]()
-- **WebSocket (WSS)**: [wss-og-testnet]()
-- **gRPC**: [grpc-og-testnet]()
+- **RPC**: [rpc-og](https://rpc.0g.papadritta.com)
+- **REST API**: [api-og](https://api.0g.papadritta.com)
+- **WebSocket (WSS)**: [wss-og](wss.0g.papadritta.com)
+- **gRPC**: [grpc-og](https://grpc.0g.papadritta.com)
 
 ## Network Fresh Peers
 - **P2P Persistent Peer**: ``
