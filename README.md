@@ -28,7 +28,7 @@ This section details the specific configuration parameters set for the OG Servic
 | `min-retain-blocks`| 0                                        |
 | `snapshot-interval`| 2000                                     |
 | `snapshot-keep-recent` | 2                                    |
-| `minimum-gas-prices`  | 0.00252ua0gi                          |
+| `minimum-gas-prices`  | 0.0025ua0gi                          |
 
 ## Access Points
 Services provide various endpoints for access and interaction through different protocols:
