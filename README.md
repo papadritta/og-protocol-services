@@ -28,7 +28,7 @@ This section details the specific configuration parameters set for the OG Servic
 | `min-retain-blocks`| 0                                        |
 | `snapshot-interval`| 2000                                     |
 | `snapshot-keep-recent` | 2                                    |
-| `minimum-gas-prices`  | 0.0025ua0gi                          |
+| `minimum-gas-prices`  | 0.00252ua0gi                          |
 
 ## Access Points
 Services provide various endpoints for access and interaction through different protocols:
@@ -49,12 +49,19 @@ Services provide various endpoints for access and interaction through different 
 ## Live Monitoring Tools
 - **Live Peers Scanner**: [Guide](URL) (Being updated every 5 minutes)
 
-## Updates and Maintenance
-For further details on updates, maintenance schedules, and historical data, refer to the specific guides linked above.
-
 ## Script for Installation
 ```
 wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/box/run.sh && chmod +x run.sh && ./run.sh
 ```
+#### Check node sync status
+```
+0gchaind status | jq '.sync_info'
+```
+> check node status > false > [Create a Validator]()
+
+## Updates and Maintenance
+For further details on updates, maintenance schedules, and historical data, refer to the specific guides linked above.
+
+
 
 
