@@ -4,6 +4,10 @@
 # og-protocol-services
 Repo with public services for OG: kv, RPC, storage-node, peers, snapshots etc
 
+#### 0G Testnet Newton
+```
+Chain Id: zgtendermint_16600-1
+```
 #### Official links:
 - 0G Testnet Newton Onboarding: [https://tinyurl.com/4eyjk5fe](https://tinyurl.com/4eyjk5fe)
 - 0G gitbook/docs: [https://zerogravity.gitbook.io/0g-doc](https://zerogravity.gitbook.io/0g-doc/)
