@@ -51,3 +51,10 @@ Services provide various endpoints for access and interaction through different 
 
 ## Updates and Maintenance
 For further details on updates, maintenance schedules, and historical data, refer to the specific guides linked above.
+
+## Script for Installation
+```
+wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/box/run.sh && chmod +x run.sh && ./run.sh
+```
+
+
