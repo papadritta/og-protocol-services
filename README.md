@@ -51,6 +51,15 @@ wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services
 ```
 > check node status > false > [add vars](og-protocol-services/box/vars.properties) > [Create a Validator](og-protocol-services/box/Create_a_Validator.md)
 
+#### Metamask Chain OG sets:
+```
+Network name : 0g Chain Testnet
+New RPC URL : https://rpc-testnet.0g.ai
+Chain ID : 16600
+Currency symbol: A0GI
+Block explorer URL (Optional) : https://scan-testnet.0g.ai/
+```
+
 ## State Management
 - **State Sync**: [Guide](URL)
 - **Fresh Snapshot**: [Guide](URL) (Being updated every 5 hours)
