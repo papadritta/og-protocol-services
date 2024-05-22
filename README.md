@@ -1,7 +1,7 @@
 <img src="https://github.com/papadritta/og-protocol-services/assets/90826754/5ec4b835-bb11-44d2-85d6-a644b6e6916e" width="300" alt="OG Logo">
 
 
-# og-protocol-services
+# OG protocol 'Testnet Newton' services
 Repo with public services for OG: kv, RPC, storage-node, peers, snapshots etc
 
 #### 0G Testnet Newton
@@ -63,6 +63,8 @@ Chain ID : 16600
 Currency symbol: A0GI
 Block explorer URL (Optional) : https://scan-testnet.0g.ai/
 ```
+<img width="479" alt="Screen Shot 2024-05-22 at 16 58 26" src="https://github.com/papadritta/og-protocol-services/assets/90826754/2d37bbcc-9292-4e0f-b300-c7b0c1db8f9e">
+
 
 ## State Management
 - **State Sync**: [Guide](URL)
