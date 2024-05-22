@@ -51,7 +51,7 @@ wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services
 ```
 > check node status > false > [add vars](og-protocol-services/box/vars.properties) > [Create a Validator](og-protocol-services/box/Create_a_Validator.md)
 
-## STORAGE NODE OG Installation
+## STORAGE NODE OG [Installation](og-protocol-services/box/storage_node.md)
 
 #### Metamask Chain OG sets:
 ```
