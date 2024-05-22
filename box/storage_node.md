@@ -55,6 +55,8 @@ Chain ID : 16600
 Currency symbol: A0GI
 Block explorer URL (Optional) : https://scan-testnet.0g.ai/
 ```
+<img width="479" alt="Screen Shot 2024-05-22 at 16 58 26" src="https://github.com/papadritta/og-protocol-services/assets/90826754/2d37bbcc-9292-4e0f-b300-c7b0c1db8f9e">
+
 >Extract your private key from MM.
 
 Type and store your private key:
