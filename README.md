@@ -54,6 +54,10 @@ wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services
 ```
 > check node status > false > [add vars](box/vars.properties) > [Create a Validator](box/Create_a_Validator.md)
 
+#### Check lastest block
+```
+curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://rpc-og.papadritta.com | jq -r '.result' | xargs printf "%d\n"
+```
 ## STORAGE NODE OG [Installation](box/storage_node.md)
 
 #### Metamask Chain OG sets:
