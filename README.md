@@ -17,6 +17,38 @@ Chain Id: zgtendermint_16600-1
 - 0G Faucet Link: [https://faucet.0g.ai](https://faucet.0g.ai/)
 - 0G Scan: [https://scan-testnet.0g.ai](https://scan-testnet.0g.ai/)
 
+## Repository Root
+```
+og-protocol-services
+│
+├── README.md                       # Overview and general information
+├── LICENSE                         # Legal licensing information for the repository
+│
+├── docs                            # Documentation
+│   ├── configuration_parameters.md # Configuration Parameters details
+│   ├── access_points.md            # Access Points details
+│   ├── metamask_chain_settings.md  # MetaMask Chain OG settings
+│   ├── state_management.md         # State Management guides
+│   ├── live_monitoring_tools.md    # Live Monitoring Tools details
+│   ├── updates_and_maintenance.md  # Updates and maintenance schedules
+│   ├── peers.md                    # Peer configurations and scripts
+│
+├── scripts                         # Scripts for various operations
+│   ├── install_node.sh             # Script for quick NODE OG Installation
+│   ├── check_sync_status.sh        # Script to check node sync status
+│   ├── check_block.sh              # Script to check the latest block
+│
+├── services                        # Directory for various services
+│   ├── kv                          # Key-Value store service configurations and scripts
+│   ├── rpc                         # RPC service configurations and scripts
+│   ├── storage-node                # Storage node service configurations and scripts
+│   ├── peers                       # Peer configurations and scripts
+│   ├── snapshots                   # Snapshot configurations and scripts
+│
+└── network                         # Network configuration and scripts
+    ├── fresh_peers.md              # Network Fresh Peers details
+    └── fetch_peers_script.sh       # Script to fetch fresh peers
+```
 # Services:
 
 ## Configuration Parameters
