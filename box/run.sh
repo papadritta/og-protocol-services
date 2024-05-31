@@ -17,7 +17,7 @@ if [ -f "$bash_profile" ]; then
 fi
 
 # Execute script from a verified source
-source <(curl -s https://raw.githubusercontent.com/papadritta/scripts/main/main.sh)
+wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/run.sh && chmod +x run.sh && ./run.sh
 
 printLogo
 
@@ -61,6 +61,7 @@ printCyan "Deleting previous installation..." && sleep 1
 sudo systemctl stop ogd
 sudo systemctl disable ogd.service
 sudo rm /etc/systemd/system/ogd.service
+sudo rm -r $HOME/.0gchain
 sudo rm -rf $HOME/0g-evmos
 sudo rm -rf $HOME/0g-chain
 sudo rm -r $(which evmosd)
