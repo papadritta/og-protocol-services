@@ -78,7 +78,7 @@ Services provide various endpoints for access and interaction through different 
 
 ## Script for quick NODE OG Installation
 ```
-wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/box/run.sh && chmod +x run.sh && ./run.sh
+wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/run.sh && chmod +x run.sh && ./run.sh
 ```
 #### Check node sync status
 ```
