@@ -71,14 +71,14 @@ sudo rm -r $(which evmosd)
 sudo rm -r $(which 0gchaind)
 
 # Clone and build the software
-printCyan "Cloning & build evmosd binary..." && sleep 1
+printCyan "Cloning & build 0gchaind binary..." && sleep 1
 git clone -b v0.1.0 https://github.com/0glabs/0g-chain.git
 cd 0g-chain/networks/testnet/
 ./install.sh
 source $HOME/.bash_profile
 
 # Initialize and configure the blockchain
-printCyan "Init chain evmosd..." && sleep 1
+printCyan "Init chain 0gchaind..." && sleep 1
 cd $HOME
 0gchaind init "$MONIKER" --chain-id "$CHAIN_ID_OG"
 0gchaind config chain-id "$CHAIN_ID_OG"
@@ -102,15 +102,15 @@ sed -i \
 
 # Configure prunning
 printCyan "Configure prunning..." && sleep 1
-sed -i.bak -e "s/^pruning *=.*/pruning = \"custom\"/" -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" -e "s/^pruning-interval *=.*/pruning-interval = \"10\"/" $HOME/.evmosd/config/app.toml
+sed -i.bak -e "s/^pruning *=.*/pruning = \"custom\"/" -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"100\"/" -e "s/^pruning-interval *=.*/pruning-interval = \"10\"/" $HOME/.0gchain/config/app.toml
 
 # Set minimum gas prices
 printCyan "Set min gas price..." && sleep 1
-sed -i "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.00252aevmos\"/" $HOME/.evmosd/config/app.toml
+sed -i "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.00252aevmos\"/" $HOME/.0gchain/config/app.toml
 
 # Enable the key-value indexer
 printCyan "Enable kv indexer..." && sleep 1
-sed -i "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.evmosd/config/config.toml
+sed -i "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.0gchain/config/config.toml
 
 # Create a service and run it
 printCyan "Create a service & run..." && sleep 1
@@ -121,7 +121,7 @@ After=network.target
 
 [Service]
 User=$USER
-ExecStart=$(which 0gchaind) start --home $HOME/.evmosd
+ExecStart=$(which 0gchaind) start --home $HOME/.0gchain
 Restart=on-failure
 LimitNOFILE=4096
 
