@@ -16,9 +16,6 @@ if [ -f "$bash_profile" ]; then
     . "$bash_profile"
 fi
 
-# Execute script from a verified source
-wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/run.sh && chmod +x run.sh && ./run.sh
-
 printLogo
 
 read -p "Enter Validator name: " MONIKER
