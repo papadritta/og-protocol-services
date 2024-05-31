@@ -16,6 +16,8 @@ if [ -f "$bash_profile" ]; then
     . "$bash_profile"
 fi
 
+source <(curl -s https://raw.githubusercontent.com/papadritta/scripts/main/main.sh)
+
 printLogo
 
 read -p "Enter Validator name: " MONIKER
