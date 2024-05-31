@@ -59,7 +59,10 @@ go version
 # Clean up previous installations
 printCyan "Deleting previous installation..." && sleep 1
 sudo systemctl stop ogd
+sudo systemctl stop 0gchaind
+sudo systemctl disable 0gchaind.service
 sudo systemctl disable ogd.service
+sudo rm /etc/systemd/system/0gchaind.service
 sudo rm /etc/systemd/system/ogd.service
 sudo rm -r $HOME/.0gchain
 sudo rm -r $HOME/.evmosd
