@@ -62,6 +62,7 @@ sudo systemctl stop ogd
 sudo systemctl disable ogd.service
 sudo rm /etc/systemd/system/ogd.service
 sudo rm -r $HOME/.0gchain
+sudo rm -r $HOME/.evmosd
 sudo rm -rf $HOME/0g-evmos
 sudo rm -rf $HOME/0g-chain
 sudo rm -r $(which evmosd)
