@@ -5,7 +5,7 @@ exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
-# Ensure curl is installed
+# Check curl is installed
 if ! exists curl; then
   sudo apt update && sudo apt install curl -y < "/dev/null"
 fi
