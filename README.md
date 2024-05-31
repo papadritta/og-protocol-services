@@ -49,6 +49,7 @@ og-protocol-services
     ├── fresh_peers.md              # Network Fresh Peers details
     └── fetch_peers_script.sh       # Script to fetch fresh peers
 ```
+![3](https://github.com/papadritta/og-protocol-services/assets/90826754/5b4b6b87-5fd4-4e71-a0fe-c702f6b333b3)
 # Services:
 
 ## Configuration Parameters
@@ -76,6 +77,8 @@ Services provide various endpoints for access and interaction through different 
 ## Network Fresh Peers [fetch_script]()
 - **P2P Persistent Peer**: `1b1d5996e51091b498e635d4ee772d3951e54d47@62.171.142.222:12656,3b0fd60499e74b773b85f4741d6b934f5e226912@158.220.109.208:12656,3cbb3424411d1131a40dd867ef01fd3fc505bed0@77.237.238.41:33556,2d1f251c61b707e2c3521b1f5d8d431765366bfd@193.233.164.82:26656,e0f225fb7356ab47328277f0a3df0e81e9ba67e3@65.109.35.243:26656,bccca94165140b3507bcee0982508c819671b1db@95.217.113.104:56656,8956c62a1e02a7798da2007c408fe011fbb6ab28@65.21.69.53:14256,4908344350e7792a1c462dc4f1e779c2fd3d0566@45.140.185.171:12656,d1f036c8cabf9c51d85e4f03f4e313ca6b39cf27@207.180.254.230:12656,acff2b2b3c01d4903cdfd61cc9d2d0c4383f4dc4@65.108.245.136:26656,4aef094b685ab73031093f01723a63e9d1d308d9@62.169.31.83:26656,892d98c9400c0f913fe689274b56827660fe2e58@157.173.200.31:13456,4a0010b186d3abc0aad75bb2e1f6743d6684b996@116.202.196.217:12656,de24f369f6ce5e4874a9f935d0dd2949f6e62af7@95.217.104.49:37656,b8f8ed478f2794629fdb5cf0c01edaed80f00f84@168.119.64.172:26656`
 
+![1](https://github.com/papadritta/og-protocol-services/assets/90826754/44003484-ed9a-4e48-a598-bfe258366c35)
+
 ## Script for quick NODE OG Installation
 ```
 wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/run.sh && chmod +x run.sh && ./run.sh
@@ -90,6 +93,9 @@ wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services
 ```
 curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://rpc-og.papadritta.com | jq -r '.result' | xargs printf "%d\n"
 ```
+
+![2](https://github.com/papadritta/og-protocol-services/assets/90826754/2afad023-c7f6-49c1-a2d0-fde81d6133b0)
+
 ## STORAGE NODE OG [Installation](box/storage_node.md)
 
 #### Metamask Chain OG sets:
