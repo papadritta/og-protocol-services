@@ -66,7 +66,7 @@ This section details the specific configuration parameters set for the OG Servic
 ## Access Points
 Services provide various endpoints for access and interaction through different protocols:
 
-- **RPC**: [http://rpc-og.papadritta.com](http://rpc-og.papadritta.com) or [http://rpc-og.papadritta.com:8545](http://rpc-og.papadritta.com:8545)
+- **RPC**: [http://rpc-og.papadritta.com:8545](http://rpc-og.papadritta.com:8545)
 - **REST API**: [api-og.papadritta.com](api-og.papadritta.com)
 - **WebSocket (WSS)**: [wss-og.papadritta.com](ws://wss-og.papadritta.com:8546)
 - **gRPC**: [grpc-og.papadritta.com](grpc-og.papadritta.com)
