@@ -80,7 +80,7 @@ sed -i 's|# db_dir = "db"|db_dir = "db"|' $HOME/0g-storage-node/run/config.toml
 Additional blockchain_rpc_endpoint setting (if not already updated):
 ```
 ```
-sed -i 's|blockchain_rpc_endpoint = ".*"|blockchain_rpc_endpoint = "https://rpc-og.papadritta.com"|' $HOME/0g-storage-node/run/config.toml
+sed -i 's|blockchain_rpc_endpoint = ".*"|blockchain_rpc_endpoint = "http://rpc-og.papadritta.com:8545"|' $HOME/0g-storage-node/run/config.toml
 ```
 ## 9. Create Service File
 ```
