@@ -16,6 +16,8 @@ Chain Id: zgtendermint_16600-1
 - 0G Youtube Channel: [https://www.youtube.com/@0G_Labs](https://www.youtube.com/@0G_Labs)
 - 0G Faucet Link: [https://faucet.0g.ai](https://faucet.0g.ai/)
 - 0G Scan: [https://scan-testnet.0g.ai](https://scan-testnet.0g.ai/)
+- 0G Newton explorer: [https://chainscan-newton.0g.ai/](https://chainscan-newton.0g.ai/)
+- OG StorageScan: [https://storagescan-newton.0g.ai/](https://storagescan-newton.0g.ai/)
 
 ## Repository Root
 ```
@@ -77,11 +79,12 @@ Services provide various endpoints for access and interaction through different 
 - **P2P Persistent Peer**: `1b1d5996e51091b498e635d4ee772d3951e54d47@62.171.142.222:12656,3b0fd60499e74b773b85f4741d6b934f5e226912@158.220.109.208:12656,3cbb3424411d1131a40dd867ef01fd3fc505bed0@77.237.238.41:33556,adb020421007751d1fa3fe779796460e3889839e@161.97.94.69:12656,2d1f251c61b707e2c3521b1f5d8d431765366bfd@193.233.164.82:26656,e0f225fb7356ab47328277f0a3df0e81e9ba67e3@65.109.35.243:26656,bccca94165140b3507bcee0982508c819671b1db@95.217.113.104:56656,8956c62a1e02a7798da2007c408fe011fbb6ab28@65.21.69.53:14256,4908344350e7792a1c462dc4f1e779c2fd3d0566@45.140.185.171:12656,d1f036c8cabf9c51d85e4f03f4e313ca6b39cf27@207.180.254.230:12656,acff2b2b3c01d4903cdfd61cc9d2d0c4383f4dc4@65.108.245.136:26656,892d98c9400c0f913fe689274b56827660fe2e58@157.173.200.31:13456,4a0010b186d3abc0aad75bb2e1f6743d6684b996@116.202.196.217:12656,de24f369f6ce5e4874a9f935d0dd2949f6e62af7@95.217.104.49:37656,8c20b60088de432d45938c163a60b2806abefa7e@84.247.130.137:26656`
 
 ## Script for quick NODE OG Installation
->Tested on Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic x86_64)
-
+1. You can use a Script for quick STORAGE NODE OG Installation
 ```
 wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/run.sh && chmod +x run.sh && ./run.sh
 ```
+>Tested on Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic x86_64)
+
 #### Check node sync status
 ```
 0gchaind status | jq '.sync_info'
@@ -92,7 +95,12 @@ wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services
 ```
 curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://rpc-og.papadritta.com | jq -r '.result' | xargs printf "%d\n"
 ```
-## STORAGE NODE OG [Installation](box/storage_node.md)
+## STORAGE NODE OG 
+1. Full step-by-step Guide you can find here in [Installation](box/storage_node.md)
+2. If you want to run a STORAGE Node on the same server where the main OG Node installed, you can use a Script for quick STORAGE NODE OG Installation
+```
+wget -O storage.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/storage.sh && chmod +x storage.sh && ./storage.sh
+```
 
 #### Metamask Chain OG sets:
 ```
