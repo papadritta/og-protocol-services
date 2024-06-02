@@ -16,6 +16,8 @@ Chain Id: zgtendermint_16600-1
 - 0G Youtube Channel: [https://www.youtube.com/@0G_Labs](https://www.youtube.com/@0G_Labs)
 - 0G Faucet Link: [https://faucet.0g.ai](https://faucet.0g.ai/)
 - 0G Scan: [https://scan-testnet.0g.ai](https://scan-testnet.0g.ai/)
+- 0G Newton explorer: [https://chainscan-newton.0g.ai/](https://chainscan-newton.0g.ai/)
+- OG StorageScan: [https://storagescan-newton.0g.ai/](https://storagescan-newton.0g.ai/)
 
 ## Repository Root
 ```
@@ -80,11 +82,12 @@ Services provide various endpoints for access and interaction through different 
 ![1](https://github.com/papadritta/og-protocol-services/assets/90826754/44003484-ed9a-4e48-a598-bfe258366c35)
 
 ## Script for quick NODE OG Installation
->Tested on Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic x86_64)
-
+1. You can use a Script for quick STORAGE NODE OG Installation
 ```
 wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/run.sh && chmod +x run.sh && ./run.sh
 ```
+>Tested on Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic x86_64)
+
 #### Check node sync status
 ```
 0gchaind status | jq '.sync_info'
@@ -98,7 +101,12 @@ curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","me
 
 ![2](https://github.com/papadritta/og-protocol-services/assets/90826754/2afad023-c7f6-49c1-a2d0-fde81d6133b0)
 
-## STORAGE NODE OG [Installation](box/storage_node.md)
+## STORAGE NODE OG 
+1. Full step-by-step Guide you can find here in [Installation](box/storage_node.md)
+2. If you want to run a STORAGE Node on the same server where the main OG Node installed, you can use a Script for quick STORAGE NODE OG Installation
+```
+wget -O storage.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/storage.sh && chmod +x storage.sh && ./storage.sh
+```
 
 #### Metamask Chain OG sets:
 ```
