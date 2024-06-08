@@ -117,12 +117,12 @@ Currency symbol: A0GI
 Block explorer URL (Optional) : https://scan-testnet.0g.ai/
 ```
 
-## State Management
+## State Management **(TBA)**
 - **State Sync**: [Guide](URL)
 - **Fresh Snapshot**: [Guide](URL) (Being updated every 5 hours)
 - **Fresh Addrbook**: [Guide](URL) (Being updated every 15 minutes)
 
-## Live Monitoring Tools
+## Live Monitoring Tools **(TBA)**
 - **Live Peers Scanner**: [Guide](URL) (Being updated every 5 minutes)
 
 ## Updates and Maintenance
