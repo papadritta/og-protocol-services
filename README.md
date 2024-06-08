@@ -76,8 +76,10 @@ Services provide various endpoints for access and interaction through different 
 - **kv**: [kv-og.papadritta.com](kv-og.papadritta.com)
 - **Storage**: [storage-og.papadritta.com](storage-og.papadritta.com)
 
-## Network Fresh Peers [fetch_script]()
+## Network Fresh Peers [fetch_script](box/fetch_fresh_peers.sh) **(TBA)**
 - **P2P Persistent Peer**: `7379543f98e0015dcf53b3eaa596138fb9c75fca@83.246.253.4:26656,bffc12a9724ac3f045fcc6f77484b57f040aa924@194.163.160.70:26656,2dacc36d2458627d7b972e1cf76ce5c28550f322@185.252.232.16:26656,fd5b7f303e24649dcfb7ea5251b3ba65189c6623@158.220.115.143:12656,00e4f43c6822d503092ffefff4d13db26b2877a2@38.242.158.147:26656,adb020421007751d1fa3fe779796460e3889839e@161.97.94.69:12656,334a34478c82e8669aace6f1ee04b4c3e04a50bb@92.118.56.200:26656,3c820ec2075e297c013b2e2f083f6c15a4fad594@62.169.26.95:26656,2d1f251c61b707e2c3521b1f5d8d431765366bfd@193.233.164.82:26656,01f53ba9f8b1f1cbcd274c52751136a741633187@5.189.142.98:26656,f397ebb8b1180d71c47e69fa685d1cf525769031@45.94.209.123:26656,ac25a6be1272692d3fc73dc84b749df870072370@5.189.146.123:26656,6266b11372e58e8360f34c90bc8f36f50487c295@77.237.236.105:26656,b573194a6183cf51fb5b4614ee6ea423102d60aa@94.130.143.97:36656,62f2d13d13999f7bf342d1329ad935490d3958df@202.61.254.126:13456`
+
+## Example how to mapping the ports for different chains in one [server](box/ports_ufw_rules.md)
 
 ![1](https://github.com/papadritta/og-protocol-services/assets/90826754/44003484-ed9a-4e48-a598-bfe258366c35)
 
@@ -101,7 +103,7 @@ curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","me
 
 ![2](https://github.com/papadritta/og-protocol-services/assets/90826754/2afad023-c7f6-49c1-a2d0-fde81d6133b0)
 
-## STORAGE NODE OG 
+## Full step-by-step & Script for quick STORAGE NODE OG Installation
 1. Full step-by-step Guide you can find here in [Installation](box/storage_node.md)
 2. If you want to run a STORAGE Node on the same server where the main OG Node installed, you can use a Script for quick STORAGE NODE OG Installation
 ```
