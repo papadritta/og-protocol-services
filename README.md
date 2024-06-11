@@ -114,7 +114,7 @@ curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","me
 
 ## Full step-by-step & Script for quick STORAGE NODE OG Installation
 1. Full step-by-step Guide you can find here in [Installation](box/storage_node.md)
-2. If you want to run a STORAGE Node on the same server where the main OG Node installed, you can use a Script for quick STORAGE NODE OG Installation
+2. If you want to run a STORAGE Node on the same server where the main OG Node installed, you can use a Script for quick STORAGE NODE OG Installation **(TBA)** TODO: Fix ports conflict and vars
 ```
 wget -O storage.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/storage.sh && chmod +x storage.sh && ./storage.sh
 ```
