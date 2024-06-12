@@ -231,8 +231,8 @@ fi
 
 printCyan "Check and save your node information:" && sleep 1
 echo "WALLET_STORAGE: $WALLET_STORAGE"
-echo "WALLET_ADDRESS: $(0gchaind keys show $WALLET_STORAGE -a)"
-ADDRESS=$(0gchaind keys show $WALLET_STORAGE -a --keyring-backend=test)
+echo "WALLET_ADDRESS: $(0gchaind keys show $WALLET_STORAGE -a --keyring-backend test)"
+ADDRESS=$(0gchaind keys show $WALLET_STORAGE -a --keyring-backend test)
 if [ -z "$ADDRESS" ]; then
   echo "Failed to get the address for storage wallet."
   exit 1
