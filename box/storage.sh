@@ -23,7 +23,9 @@ cleanup_previous_installation() {
 
   sudo systemctl stop zgs || true
   sudo systemctl disable zgs || true
+
   sudo rm -f /etc/systemd/system/zgs.service
+
   rm -rf $HOME/0g-storage-node
 
   sed -i.bak '/ZGS_CONFIG_FILE/d' ~/.bash_profile
@@ -230,7 +232,22 @@ fi
 printCyan "Check and save your node information:" && sleep 1
 echo "WALLET_STORAGE: $WALLET_STORAGE"
 echo "WALLET_ADDRESS: $(0gchaind keys show $WALLET_STORAGE -a)"
-echo "ADDRESS_FOR_FAUCET: 0x$(0gchaind debug addr $(0gchaind keys show $WALLET_STORAGE -a) | grep hex | awk '{print $3}')"
+ADDRESS=$(0gchaind keys show $WALLET_STORAGE -a --keyring-backend=test)
+if [ -z "$ADDRESS" ]; then
+  echo "Failed to get the address for storage wallet."
+  exit 1
+fi
+DEBUG_OUTPUT=$(0gchaind debug addr $ADDRESS)
+if [ $? -ne 0 ]; then
+  echo "Failed to debug the address."
+  exit 1
+fi
+HEX_ADDRESS=$(echo "$DEBUG_OUTPUT" | grep hex | awk '{print $3}')
+if [ -z "$HEX_ADDRESS" ]; then
+  echo "Failed to extract hex address."
+  exit 1
+fi
+echo "ADDRESS_FOR_FAUCET: 0x$HEX_ADDRESS"
 echo "PRIVATE_KEY (SAVE IT): $PRIVATE_KEY"
 echo "ZGS_RPC: $ZGS_RPC"
 echo "ZGS_CONTRACT_ADDRESS: $ZGS_CONTRACT_ADDRESS"
@@ -239,13 +256,10 @@ echo "ZGS_MINE_CONTRACT: $ZGS_MINE_CONTRACT"
 printCyan "What next?" && sleep 1
 echo -e "\nRequest tokens from faucet: https://faucet.0g.ai"
 printCyan "Your address for Faucet is" && sleep 1
-echo "0x$(0gchaind debug addr $(0gchaind keys show $WALLET_STORAGE -a) | grep hex | awk '{print $3}')"
+echo "0x$HEX_ADDRESS"
 printCyan "After requesting tokens from the faucet: Restart the service" && sleep 1
 echo -e "\nsudo systemctl start zgs"
 
 printCyan "Next - CHECK & MONITOR STORAGE NODE LOGS and you are DONE!!!" && sleep 1
 
-echo -e "\ntail -f $(ls ~/0g-storage-node/run/log/zgs.log.* | sort | tail -n 1)"
-
 printf "\nTo re-run the script again, use: ./storage.sh\e[0m\n"
-

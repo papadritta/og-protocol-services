@@ -98,6 +98,8 @@ echo "ADDRESS_FOR_FAUCET: 0x$(0gchaind debug addr $(0gchaind keys show $WALLET_S
 sudo systemctl start zgs
 ```
 ```
-tail -f $(ls ~/0g-storage-node/run/log/zgs.log.* | sort | tail -n 1)
+LATEST_LOG=$(ls ~/0g-storage-node/run/log/zgs.log.* | sort | tail -n 1)
+echo -e "\ntail -f $LATEST_LOG"
+tail -f "$LATEST_LOG"
 ```
 ALL DONE !!!
