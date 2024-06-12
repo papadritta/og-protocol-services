@@ -91,7 +91,7 @@ wget -O storage.sh https://raw.githubusercontent.com/papadritta/og-protocol-serv
 - **Request tokens from faucet** [Faucet](https://faucet.0g.ai)
 >Your address copy from installation script output or, if you fogot, do it again by running command:
 ```
-echo "ADDRESS_FOR_FAUCET: 0x$(0gchaind debug addr $(0gchaind keys show $WALLET_STORAGE -a) | grep hex | awk '{print $3}')"
+ADDRESS=$(0gchaind keys show $WALLET_STORAGE -a --keyring-backend=test) && HEX_ADDRESS=$(0gchaind debug addr $ADDRESS | awk '/hex/ {print $3}') && [ -n "$HEX_ADDRESS" ] && echo "ADDRESS_FOR_FAUCET: 0x$HEX_ADDRESS"
 ```
 - **Restart your zgs service and Check the logs**
 ```
