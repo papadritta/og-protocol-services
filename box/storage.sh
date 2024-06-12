@@ -152,11 +152,11 @@ if [ -z "$WALLET_STORAGE" ]; then
   source ~/.bash_profile
 
   printCyan "Adding key for storage wallet..." && sleep 1
-  KEY_OUTPUT=$(0gchaind keys add $WALLET_STORAGE --eth --keyring-backend=test)
+  KEY_OUTPUT=$(0gchaind keys add $WALLET_STORAGE --eth --keyring-backend test)
   echo "$KEY_OUTPUT"
 
   printCyan "Extracting and storing private key for storage node..." && sleep 1
-  PRIVATE_KEY=$(0gchaind keys unsafe-export-eth-key $WALLET_STORAGE)
+  PRIVATE_KEY=$(0gchaind keys unsafe-export-eth-key $WALLET_STORAGE --keyring-backend test)
   if [ -z "$PRIVATE_KEY" ]; then
     echo "Failed to extract the private key. Please check if the wallet name is correct and exists."
     exit 1
@@ -165,15 +165,15 @@ if [ -z "$WALLET_STORAGE" ]; then
   update_config "$PRIVATE_KEY"
 else
 
-  WALLET_INFO=$(0gchaind keys list --keyring-backend=test | grep -A 3 "name: $WALLET_STORAGE")
+  WALLET_INFO=$(0gchaind keys list --keyring-backend test | grep -A 3 "name: $WALLET_STORAGE")
 
   if [ -z "$WALLET_INFO" ]; then
     printCyan "Wallet storage not found. Adding key for storage wallet..." && sleep 1
-    KEY_OUTPUT=$(0gchaind keys add $WALLET_STORAGE --eth --keyring-backend=test)
+    KEY_OUTPUT=$(0gchaind keys add $WALLET_STORAGE --eth --keyring-backend test)
     echo "$KEY_OUTPUT"
 
     printCyan "Extracting and storing private key for storage node..." && sleep 1
-    PRIVATE_KEY=$(0gchaind keys unsafe-export-eth-key $WALLET_STORAGE)
+    PRIVATE_KEY=$(0gchaind keys unsafe-export-eth-key $WALLET_STORAGE --keyring-backend test)
     if [ -z "$PRIVATE_KEY" ]; then
       echo "Failed to extract the private key. Please check if the wallet name is correct and exists."
       exit 1
@@ -190,7 +190,7 @@ else
     echo "Public Key: $PUBLIC_KEY"
     echo "Address: $ADDRESS"
 
-    PRIVATE_KEY=$(0gchaind keys unsafe-export-eth-key $WALLET_STORAGE)
+    PRIVATE_KEY=$(0gchaind keys unsafe-export-eth-key $WALLET_STORAGE --keyring-backend test)
     update_config "$PRIVATE_KEY"
   fi
 fi
