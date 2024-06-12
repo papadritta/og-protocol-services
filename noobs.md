@@ -64,6 +64,7 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show $WALLET_NAME -a) | grep hex |
 ALL DONE !!!
 
 ### What next? >>>
+![335649682-2afad023-c7f6-49c1-a2d0-fde81d6133b0](https://github.com/papadritta/og-protocol-services/assets/90826754/2149ee59-7b31-4896-adb1-175013b0b4a1)
 
 ### 🚀 Quick STORAGE NODE OG Installation Script
 
