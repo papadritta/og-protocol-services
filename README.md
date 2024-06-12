@@ -93,7 +93,9 @@ wget -O ports_mapper.sh https://raw.githubusercontent.com/papadritta/og-protocol
 ![1](https://github.com/papadritta/og-protocol-services/assets/90826754/44003484-ed9a-4e48-a598-bfe258366c35)
 
 ## Script for quick NODE OG Installation
-1. You can use a Script for quick STORAGE NODE OG Installation
+
+- You can use a Script for quick `NODE OG` Installation
+
 ```
 wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/run.sh && chmod +x run.sh && ./run.sh
 ```
@@ -112,9 +114,10 @@ curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","me
 
 ![2](https://github.com/papadritta/og-protocol-services/assets/90826754/2afad023-c7f6-49c1-a2d0-fde81d6133b0)
 
-## Full step-by-step & Script for quick STORAGE NODE OG Installation
-1. Full step-by-step Guide you can find here in [Installation](box/storage_node.md)
-2. If you want to run a STORAGE Node on the same server where the main OG Node installed, you can use a Script for quick STORAGE NODE OG Installation **(TBA)** TODO: Fix ports conflict and vars
+## Script for quick STORAGE NODE OG Installation (Run on the same server with NODE OG)
+
+- You can use a Script for quick `STORAGE NODE OG` Installation
+
 ```
 wget -O storage.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/storage.sh && chmod +x storage.sh && ./storage.sh
 ```
