@@ -1,5 +1,5 @@
 ![1](https://github.com/papadritta/og-protocol-services/assets/90826754/44003484-ed9a-4e48-a598-bfe258366c35)
-## 🚀 Quick NODE OG Installation Script
+## 🚀 Quick NODE OG Installation Script (v0.1.0)
 
 #### 🛠️ Features:
 - **Automated Setup**: No prior knowledge needed.
