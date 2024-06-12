@@ -1,5 +1,5 @@
 ![1](https://github.com/papadritta/og-protocol-services/assets/90826754/44003484-ed9a-4e48-a598-bfe258366c35)
-### 🚀 Quick NODE OG Installation Script
+## 🚀 Quick NODE OG Installation Script
 
 #### 🛠️ Features:
 - **Automated Setup**: No prior knowledge needed.
@@ -62,3 +62,8 @@ echo "0x$(0gchaind debug addr $(0gchaind keys show $WALLET_NAME -a) | grep hex |
 ```
 
 ALL DONE !!!
+
+### What next? >>>
+
+### 🚀 Quick STORAGE NODE OG Installation Script
+
