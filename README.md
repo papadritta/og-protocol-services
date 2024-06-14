@@ -57,7 +57,7 @@ wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services
 
 #### Wait until the node is fully synced or download the Snapshot 
 
-- **Fresh Snapshot**: [Being updated every 3 hours](link)
+- **Fresh Snapshot**: [Update every 3 hours](link)
 
 #### Check lastest block
 ```
