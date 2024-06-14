@@ -2,7 +2,7 @@
 
 #### 1. Download latest snapshot
 ```
-wget https://rpc-og.papadritta.com/latest_snapshot.tar.lz4
+wget https://snapshot-og.papadritta.com/latest_snapshot.tar.lz4
 ```
 #### 2. Stop the node
 ```
