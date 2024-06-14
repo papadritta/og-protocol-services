@@ -55,6 +55,10 @@ wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services
 ```
 > check node status > false > [add/check vars](box/vars.properties) > [Create a Validator](box/Validator.properties)
 
+#### Wait until the node is fully synced or download the Snapshot 
+
+- **Fresh Snapshot**: [Being updated every 3 hours](link)
+
 #### Check lastest block
 ```
 curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://rpc-og.papadritta.com | jq -r '.result' | xargs printf "%d\n"
