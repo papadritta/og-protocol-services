@@ -36,7 +36,7 @@ This section details the specific configuration parameters set for the OG Servic
 | Parameter          | Value                                    |
 | ------------------ | ---------------------------------------- |
 | `indexing`         | kv                                       |
-| `pruning`          | custom (100/50)                          |
+| `pruning`          | custom (100/10)                          |
 | `min-retain-blocks`| 0                                        |
 | `snapshot-interval`| 2000                                     |
 | `snapshot-keep-recent` | 2                                    |
