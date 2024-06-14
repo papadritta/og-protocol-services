@@ -20,6 +20,8 @@ rm -r $HOME/.0gchain/data
 ```
 #### 5. Extract files fromt the arvhive
 ```
+sudo apt-get update
+sudo apt-get install lz4
 lz4 -d -c ~/latest_snapshot.tar.lz4 | tar -xf - -C $HOME/.0gchain
 ```
 #### 6. Backup priv_validator_state.json
