@@ -30,17 +30,6 @@ og-protocol-services
     ├── fresh_peers.md              # Network Fresh Peers details
     └── fetch_peers_script.sh       # Script to fetch fresh peers
 ```
-## Configuration Parameters
-This section details the specific configuration parameters set for the OG Services.
-
-| Parameter          | Value                                    |
-| ------------------ | ---------------------------------------- |
-| `indexing`         | kv                                       |
-| `pruning`          | custom (100/10)                          |
-| `min-retain-blocks`| 0                                        |
-| `snapshot-interval`| 2000                                     |
-| `snapshot-keep-recent` | 2                                    |
-| `minimum-gas-prices`  | 0.00252ua0gi                          |
 
 ## or run a script `ports_mapper.sh` to install or check ports in use (for Cosmos SDK related projects & common used Ports)
 
@@ -56,7 +45,6 @@ wget -O ports_mapper.sh https://raw.githubusercontent.com/papadritta/og-protocol
 
 ## State Management **(TBA)**
 - **State Sync**: [Link](URL)
-- **Fresh Snapshot**: [Link](URL) (Being updated every 5 hours)
 - **Fresh Addrbook**: [Link](URL) (Being updated every 15 minutes)
 
 ## Live Monitoring Tools **(TBA)**
