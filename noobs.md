@@ -27,7 +27,9 @@ wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services
 ```
 0gchaind status | jq .sync_info.catching_up
 ```
->if the status still 'true' > just wait for fully sync
+>if the status still 'true' > just wait for fully sync > or download the Snapshot 
+
+- **Fresh Snapshot**: [Update every 3 hours](box/Snapshot.md)
 
 - **Request tokens from faucet** [Faucet](https://faucet.0g.ai)
 >Your address copy from installation script output or, if you fogot, do it again by running command:
