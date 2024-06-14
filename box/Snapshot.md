@@ -14,13 +14,13 @@ sudo systemctl stop ogd
 ```
 cp $HOME/.0gchain/data/priv_validator_state.json $HOME/.0gchain/priv_validator_state.json.backup
 ```
-#### 4. Reset DB
+#### 4. Delete DB
 ```
-sudo 0gchain tendermint unsafe-reset-all --home $HOME/.0gchain --keep-addr-book
+rm -r $HOME/.0gchain/data
 ```
 #### 5. Extract files fromt the arvhive
 ```
-lz4 -d -c ./latest_snapshot.tar.lz4 | tar -xf - -C $HOME/.0gchain
+lz4 -d -c ~/latest_snapshot.tar.lz4 | tar -xf - -C $HOME/.0gchain
 ```
 #### 6. Backup priv_validator_state.json
 ```
