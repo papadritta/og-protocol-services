@@ -48,8 +48,6 @@ wget -O ports_mapper.sh https://raw.githubusercontent.com/papadritta/og-protocol
 
 ## State Management **(TBA)**
 - **State Sync**: [Link](URL)
-- **Fresh Addrbook**: [Link](URL) (Being updated every 15 minutes)
-
+- **Fresh Addrbook**: [Link](URL) 
 ## Live Monitoring Tools **(TBA)**
-- **Validators Dashboard**: [Link](URL) (Being updated every 5 minutes)
-
+- **Validators Dashboard**: [Link](URL) 
