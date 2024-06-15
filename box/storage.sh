@@ -87,7 +87,7 @@ else
 fi
 
 printCyan "Cloning 0G Storage Node repository..." && sleep 1
-git clone -b v0.3.0 https://github.com/0glabs/0g-storage-node.git
+git clone -b v0.3.1 https://github.com/0glabs/0g-storage-node.git
 
 printCyan "Building the project..." && sleep 1
 cd $HOME/0g-storage-node
