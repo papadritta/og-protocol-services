@@ -30,7 +30,10 @@ og-protocol-services
     ├── fresh_peers.md              # Network Fresh Peers details
     └── fetch_peers_script.sh       # Script to fetch fresh peers
 ```
-
+## make a fully automated script for Storage-KV service
+```
+storage-kv.sh
+```
 ## or run a script `ports_mapper.sh` to install or check ports in use (for Cosmos SDK related projects & common used Ports)
 
 #### How to Use:
