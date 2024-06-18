@@ -53,11 +53,8 @@ Services provide various endpoints for access and interaction through different 
 
 ## Script for quick NODE OG Installation (v0.1.0)
 
-- You can use a Script for quick `NODE OG` Installation
+- You can use a Script for quick `NODE OG` [Installation](/starter.md)
 
-```
-wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/run.sh && chmod +x run.sh && ./run.sh
-```
 >Tested on Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic x86_64)
 
 #### Check node sync status
@@ -79,11 +76,7 @@ curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","me
 
 ## Script for quick STORAGE NODE OG Installation (v0.3.1) Run on the same server with NODE OG.
 
-- You can use a Script for quick `STORAGE NODE OG` Installation
-
-```
-wget -O storage.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/storage.sh && chmod +x storage.sh && ./storage.sh
-```
+- You can use a Script for quick `STORAGE NODE OG` [Installation](/starter.md)
 
 #### Metamask Chain OG sets:
 ```
