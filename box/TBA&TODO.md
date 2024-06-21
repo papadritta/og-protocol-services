@@ -51,3 +51,11 @@ wget -O ports_mapper.sh https://raw.githubusercontent.com/papadritta/og-protocol
 - **Fresh Addrbook**: [Link](URL) 
 ## Live Monitoring Tools **(TBA)**
 - **Validators Dashboard**: [Link](URL) 
+
+
+## TODO Waiting for Hardfork and correct the `restore_0gchain.sh`
+
+- For `RESTORE NODE OG` you can use a Script (Use it after Hardfork or if you want to move and restore on another server)
+```
+wget -O restore_0gchain.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/scripts/restore_0gchain.sh && chmod +x restore_0gchain.sh && ./restore_0gchain.sh
+```
