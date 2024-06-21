@@ -5,8 +5,3 @@ Copy & Paste and script proceed automaticly
 wget -O backup_0gchain.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/scripts/backup_0gchain.sh && chmod +x backup_0gchain.sh && ./backup_0gchain.sh
 ```
 
-- For `RESTORE NODE OG` you can use a Script (Use it after Hardfork or if you want to move and restore on another server)
-```
-wget -O restore_0gchain.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/scripts/restore_0gchain.sh && chmod +x restore_0gchain.sh && ./restore_0gchain.sh
-```
-
