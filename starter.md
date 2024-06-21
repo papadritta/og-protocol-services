@@ -17,7 +17,7 @@
 2. **Follow Prompts**: Enter required info as prompted.
 
 ```
-wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/run.sh && chmod +x run.sh && ./run.sh
+wget -O run.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/scripts/run.sh && chmod +x run.sh && ./run.sh
 ```
 >Tested on Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic x86_64)
 
@@ -85,7 +85,7 @@ ALL DONE !!!
 2. **Follow Prompts**: Enter required info as prompted.
 
 ```
-wget -O storage.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/box/storage.sh && chmod +x storage.sh && ./storage.sh
+wget -O storage.sh https://raw.githubusercontent.com/papadritta/og-protocol-services/main/scripts/storage.sh && chmod +x storage.sh && ./storage.sh
 ```
 >Tested on Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic x86_64)
 >In this script I used my RPC https://rpc-og.papadritta.com and you can keep it by default, but you can add yours, or use https://rpc-storage-testnet.0g.ai
