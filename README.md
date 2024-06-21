@@ -30,6 +30,7 @@ This section details the specific configuration parameters set for the OG Servic
 | `snapshot-interval`| 1200                                     |
 | `snapshot-keep-recent` | 2                                    |
 | `minimum-gas-prices`  | 0.00252ua0gi                          |
+## [Fresh Snapshot Update every 3 hours](box/Snapshot.md)
 
 ![3](https://github.com/papadritta/og-protocol-services/assets/90826754/5b4b6b87-5fd4-4e71-a0fe-c702f6b333b3)
 # Services:
