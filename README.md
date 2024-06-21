@@ -80,6 +80,8 @@ curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","me
 
 - You can use a Script for quick `STORAGE NODE OG` [Installation](/starter.md)
 
+## Additional:
+
 #### Metamask Chain OG sets:
 ```
 Network name : 0g Chain Testnet
