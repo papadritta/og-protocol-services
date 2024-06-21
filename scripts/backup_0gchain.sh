@@ -2,7 +2,6 @@
 
 SOURCE_DIR="$HOME/.0gchain"
 BACKUP_DIR="$HOME/0gchain_backup"
-SCRIPT_FILE="$HOME/backup_0gchain.sh"
 
 if [ ! -d "$SOURCE_DIR" ]; then
     echo "Error: Directory $SOURCE_DIR does not exist."
@@ -15,11 +14,6 @@ if [ -d "$BACKUP_DIR" ]; then
     exit 1
 fi
 
-if [ -f "$SCRIPT_FILE" ]; then
-    echo "Warning: Script file $SCRIPT_FILE already exists."
-    exit 1
-fi
-
 mkdir -p "$BACKUP_DIR"
 
 rsync -av --progress --exclude 'data' "$SOURCE_DIR/" "$BACKUP_DIR/"
@@ -28,4 +22,4 @@ mkdir -p "$BACKUP_DIR/data"
 
 cp "$SOURCE_DIR/data/priv_validator_state.json" "$BACKUP_DIR/data/"
 
-echo "Backup completed successfully. You saved all OG node info in to $HOME/0gchain_backup"
+echo "Backup completed successfully. You saved all OG node info in $HOME/0gchain_backup"
