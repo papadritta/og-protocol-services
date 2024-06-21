@@ -86,7 +86,7 @@ Chain ID : 16600
 Currency symbol: A0GI
 Block explorer URL (Optional) : https://scan-testnet.0g.ai/
 ```
-
-
+#### Backup & Restore all Node info exept data dir (the priv_validator_state.json is also stored in backup)
+- You can use a Script for quick `BACKUP NODE OG` & `RESTORE NODE OG` before & after hardfork [Backup]() and then [Restore]()
 
 
