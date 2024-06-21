@@ -55,7 +55,7 @@ Services provide various endpoints for access and interaction through different 
 
 ## Script for quick NODE OG Installation (v0.1.0)
 
-- You can use a Script for quick `NODE OG` [Installation](/starter.md)
+- You can use a Script for quick `NODE OG` [Installation](box/starter.md)
 
 >Tested on Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic x86_64)
 
@@ -78,7 +78,7 @@ curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","me
 
 ## Script for quick STORAGE NODE OG Installation (v0.3.1) Run on the same server with NODE OG.
 
-- You can use a Script for quick `STORAGE NODE OG` [Installation](/starter.md)
+- You can use a Script for quick `STORAGE NODE OG` [Installation](box/starter.md)
 
 ## Additional:
 
