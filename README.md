@@ -7,7 +7,7 @@ Repo with public services for OG: kv, RPC, storage-node, peers, snapshots etc
 
 #### 0G Testnet Newton
 ```
-Chain Id: zgtendermint_16600-1
+Chain Id: zgtendermint_16600-2
 ```
 #### Official links:
 - 0G Testnet Newton Onboarding: [https://tinyurl.com/4eyjk5fe](https://tinyurl.com/4eyjk5fe)
@@ -40,6 +40,9 @@ This section details the specific configuration parameters set for the OG Servic
 
 ## Access Points
 Services provide various endpoints for access and interaction through different protocols:
+
+- **RPC**: [https://rpc1-og.papadritta.com](https://rpc1-og.papadritta.com)
+- **RPC**: [https://rpc2-og.papadritta.com](https://rpc2-og.papadritta.com)
 
 - **RPC**: [https://rpc-og.papadritta.com](https://rpc-og.papadritta.com)
 - **REST API**: [https://api-og.papadritta.com](https://api-og.papadritta.com)
