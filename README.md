@@ -79,18 +79,3 @@ curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","me
 ## Script for quick STORAGE NODE OG (v0.3.2) Installation Run on the same server with NODE OG.
 
 - You can use a Script for quick `STORAGE NODE OG` [Installation](box/starter.md)
-
-## Additional:
-
-#### Metamask Chain OG sets:
-```
-Network name : 0g Chain Testnet
-New RPC URL : https://rpc-testnet.0g.ai
-Chain ID : 16600
-Currency symbol: A0GI
-Block explorer URL (Optional) : https://scan-testnet.0g.ai/
-```
-#### Backup & Restore all Node info exept data dir (the priv_validator_state.json is also stored in backup)
-- You can use a Script for quick `BACKUP NODE OG` & `RESTORE NODE OG` before & after hardfork [Backup](box/backup_restore.md) and then [Restore](box/backup_restore.md)
-
-
