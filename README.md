@@ -44,8 +44,8 @@ Services provide various endpoints for access and interaction through different 
 - **RPC**: [https://rpc1-og.papadritta.com](https://rpc1-og.papadritta.com)
 - **RPC**: [https://rpc2-og.papadritta.com](https://rpc2-og.papadritta.com)
 
-- **RPC**: [https://rpc-og.papadritta.com](https://rpc-og.papadritta.com)
-- **REST API**: [https://api-og.papadritta.com](https://api-og.papadritta.com)
+- **RPC(JSON)**: [https://rpc-og.papadritta.com](https://rpc-og.papadritta.com)
+- **API**: [https://api-og.papadritta.com](https://api-og.papadritta.com)
 - **gRPC**: [https://grpc-og.papadritta.com](https://grpc-og.papadritta.com)
 - **WebSocket (WSS)**: [ws://wss-og.papadritta.com](ws://wss-og.papadritta.com)
 - **kv**: [https://kv-og.papadritta.com](https://kv-og.papadritta.com)
