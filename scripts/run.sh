@@ -56,7 +56,7 @@ base_grpc_web_port=9091
 base_evm_rpc_port=8545
 base_evm_rpc_ws_port=8546
 
-CHAIN_ID_OG="zgtendermint_16600-1"
+CHAIN_ID_OG="zgtendermint_16600-2"
 DETAILS="OG to the >>> Moon"
 
 bash_profile="$HOME/.bash_profile"
@@ -185,9 +185,11 @@ sudo rm -r $(which evmosd)
 sudo rm -r $(which 0gchaind)
 
 printCyan "Cloning & building 0gchaind binary..." && sleep 1
-git clone -b v0.1.0 https://github.com/0glabs/0g-chain.git
-cd 0g-chain/networks/testnet/
-./install.sh
+cd $HOME
+git clone -b v0.2.3 https://github.com/0glabs/0g-chain
+cd 0g-chain
+git checkout tags/v0.2.3
+make install
 source $HOME/.bash_profile
 
 printCyan "Initializing chain 0gchaind..." && sleep 1
@@ -196,17 +198,15 @@ cd $HOME
 0gchaind config keyring-backend test
 
 printCyan "Downloading genesis.json..." && sleep 1
+rm $HOME/.0gchain/config/addrbook.json $HOME/.0gchain/config/genesis.json
 sudo apt install -y unzip wget
-wget -P ~/.0gchain/config https://github.com/0glabs/0g-chain/releases/download/v0.1.0/genesis.json
-
-cd $HOME
-sudo mv ~/.0gchain/config/genesis.json ~/.0gchain/config/genesis.json.backup
-sudo mv ~/.0gchain/config/genesis.json.1 ~/.0gchain/config/genesis.json
+wget -P ~/.0gchain/config https://github.com/0glabs/0g-chain/releases/download/v0.2.3/genesis.json
+0gchaind validate-genesis
 
 printCyan "Adding seeds and peers..." && sleep 1
 sed -i \
-    -e 's/^seeds *=.*/seeds = "c4d619f6088cb0b24b4ab43a0510bf9251ab5d7f@54.241.167.190:26656"/' \
-    -e 's/^persistent_peers *=.*/persistent_peers = "7379543f98e0015dcf53b3eaa596138fb9c75fca@83.246.253.4:26656,2dacc36d2458627d7b972e1cf76ce5c28550f322@185.252.232.16:26656,cfe299faebfa81a2a4191ff93c8f6136887238da@185.250.36.142:26656,fd5b7f303e24649dcfb7ea5251b3ba65189c6623@158.220.115.143:12656,b2f647c3704b04b03700b67fcca7477d3f3d4c9b@173.212.242.60:26656,adb020421007751d1fa3fe779796460e3889839e@161.97.94.69:12656,334a34478c82e8669aace6f1ee04b4c3e04a50bb@92.118.56.200:26656,3c820ec2075e297c013b2e2f083f6c15a4fad594@62.169.26.95:26656,2d1f251c61b707e2c3521b1f5d8d431765366bfd@193.233.164.82:26656,56715db4fbe48028778ebb7cfeeeb689d0d2fb9b@37.60.252.203:26656,8cecd90d6d0d2d64afea9735dbab5e6e21e7bf6f@195.179.229.40:26656,01f53ba9f8b1f1cbcd274c52751136a741633187@5.189.142.98:26656,8f1880f4140e3d8187d0d0ac003e10443f9216b0@89.117.55.63:26656,f397ebb8b1180d71c47e69fa685d1cf525769031@45.94.209.123:26656,ac25a6be1272692d3fc73dc84b749df870072370@5.189.146.123:26656"/' \
+    -e 's/^seeds *=.*/seeds = "59df4b3832446cd0f9c369da01f2aa5fe9647248@162.55.65.137:27956"/' \
+    -e 's/^persistent_peers *=.*/persistent_peers = "5a9aac3b111f8ef78da298d747f6f79daf2b5954@31.220.75.10:12656,df4cc52fa0fcdd5db541a28e4b5a9c6ce1076ade@37.60.246.110:13456,4151763741fb533d56f51bbf56be514a2a6764f7@173.249.60.23:12656,6e044d233c4abb2cc970c8fc2e968273c38a874e@167.86.116.237:12656,5344c27c5c70ce0e821348900e365b01801f0a41@38.242.242.153:12656,5e6c41eaefd9857989b5216ae9910503483f5357@116.202.49.230:26656,d7921529d985b18096ea5cc5d023806af91fd51e@157.90.128.250:58656,d7535cad33e0c7cfc7274807862eebff32b81906@45.136.17.23:26656,55982724a7a30944215ad45924071f1efc1eef4a@116.202.174.53:26856,87050b88e0dff2df18caff484e01c32d9f6e6a49@185.209.223.108:12656,5ba403bf2183ffbc2aea2508af82041ad69cb883@195.201.242.245:12656,6a07fd41680eacfd29b63c7ce07a0f20af18bfa8@193.233.75.244:26656,3b3ddcd4de429456177b29e5ca0febe4f4c21989@75.119.139.198:26656,7e6124b7816c2fddd1e0f08bbaf0b6876230c5f4@37.27.120.13:26656,806f194271899ed818e05d63921f9032bcf96553@158.220.83.6:26656"/' \
     ~/.0gchain/config/config.toml
 
 printCyan "Configuring pruning..." && sleep 1
@@ -218,6 +218,9 @@ sed -i "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0.00252aevmos\"/" $HOM
 printCyan "Enabling kv indexer..." && sleep 1
 sed -i "s/^indexer *=.*/indexer = \"kv\"/" $HOME/.0gchain/config/config.toml
 
+printCyan "Setting json-rpc..." && sleep 1
+sed -i -e 's/address = "127.0.0.1:8545"/address = "0.0.0.0:8545"/' -e 's|^api = ".*"|api = "eth,txpool,personal,net,debug,web3"|' $HOME/.0gchain/config/app.toml
+
 adjust_ports $rpc_port $rpc_laddr_port $p2p_port $prometheus_port $api_port $grpc_port $grpc_web_port $evm_rpc_port $evm_rpc_ws_port
 
 print_ports
@@ -227,14 +230,17 @@ print_ports
 printCyan "Creating a service & running..." && sleep 1
 sudo tee /etc/systemd/system/ogd.service > /dev/null <<EOF
 [Unit]
-Description=0gchaind Node Service
+Description=OG Node
 After=network.target
 
 [Service]
 User=$USER
-ExecStart=$(which 0gchaind) start --home $HOME/.0gchain
+Type=simple
+ExecStart=/root/go/bin/0gchaind start --json-rpc.api eth,txpool,personal,net,debug,web3 --home /root/.0gchain
+Environment="G0GC=900"
+Environment="G0MELIMIT=40GB"
 Restart=on-failure
-LimitNOFILE=4096
+LimitNOFILE=65535
 
 [Install]
 WantedBy=multi-user.target
