@@ -1,5 +1,8 @@
 ![1](https://github.com/papadritta/og-protocol-services/assets/90826754/44003484-ed9a-4e48-a598-bfe258366c35)
-## 🚀 Quick NODE OG Installation Script (v0.1.0)
+## 🚀 Quick NODE OG Installation Script:
+- **Chain ID**: zgtendermint_16600-2
+- **Version of binary**: v0.2.3
+- **Systemd service**: ogd.service
 
 #### 🛠️ Features:
 - **Automated Setup**: No prior knowledge needed.
