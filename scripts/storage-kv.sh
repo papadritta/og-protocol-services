@@ -21,10 +21,10 @@ set_env_var() {
 cleanup_previous_installation() {
   echo "Cleaning up previous installation..."
 
-  sudo systemctl stop zgskv || true
-  sudo systemctl disable zgskv || true
+  sudo systemctl stop zgs-kv || true
+  sudo systemctl disable zgs-kv || true
 
-  sudo rm -f /etc/systemd/system/zgskv.service
+  sudo rm -f /etc/systemd/system/zgs-kv.service
 
   rm -rf $HOME/0g-storage-kv
 
@@ -46,6 +46,7 @@ if [ -f "$bash_profile" ]; then
     . "$bash_profile"
 fi
 
+# Source external script for printing logo
 source <(curl -s https://raw.githubusercontent.com/papadritta/scripts/main/main.sh)
 
 printLogo
@@ -57,7 +58,6 @@ printCyan() {
 printCyan "Starting installation script..."
 
 cleanup_previous_installation
-sudo systemctl daemon-reload
 
 printCyan "Updating packages..." && sleep 1
 sudo apt-get update
@@ -68,7 +68,7 @@ sudo apt-get install -y clang cmake build-essential git cargo
 printCyan "Cloning 0G Storage KV repository..." && sleep 1
 REPO_URL="https://github.com/0glabs/0g-storage-kv.git"
 INSTALL_DIR="$HOME/0g-storage-kv"
-git clone $REPO_URL $INSTALL_DIR
+git clone -b v1.1.0-testnet $REPO_URL $INSTALL_DIR
 
 printCyan "Building the project..." && sleep 1
 cd $INSTALL_DIR
@@ -86,46 +86,55 @@ printCyan "Copying config file..." && sleep 1
 cp "$INSTALL_DIR/run/config_example.toml" "$INSTALL_DIR/run/config.toml"
 
 printCyan "Fetching required environment variables..." && sleep 1
-BLOCK_NUMBER=$(grep "log_sync_start_block_number" "$HOME/0g-storage-node/run/config.toml" | cut -d' ' -f3)
+STORAGE_PORT=$(grep -oP '(?<=rpc_listen_address = "0.0.0.0:)\d+(?=")' $HOME/0g-storage-node/run/config.toml)
+ZGS_LOG_SYNC_BLOCK=$(grep -oP '(?<=log_sync_start_block_number = )\d+' $HOME/0g-storage-node/run/config.toml)
+STORAGE_RPC_ENDPOINT=http://$(wget -qO- eth0.me):$STORAGE_PORT
+BLOCKCHAIN_RPC_ENDPOINT=$(sed -n 's/blockchain_rpc_endpoint = "\([^"]*\)"/\1/p' $HOME/0g-storage-node/run/config.toml)
+LOG_CONTRACT_ADDRESS=$(sed -n 's/log_contract_address = "\([^"]*\)"/\1/p' $HOME/0g-storage-node/run/config.toml)
+MINE_CONTRACT_ADDRESS=$(sed -n 's/mine_contract_address = "\([^"]*\)"/\1/p' $HOME/0g-storage-node/run/config.toml)
+JSON_PORT=$(sed -n '/\[json-rpc\]/,/^address/ s/address = "0.0.0.0:\([0-9]*\)".*/\1/p' $HOME/.0gchain/config/app.toml)
+JSON_RPC_ENDPOINT=http://$(wget -qO- eth0.me):$JSON_PORT
+
+printCyan "Fetched environment variables:"
+echo "STORAGE_PORT: $STORAGE_PORT"
+echo "ZGS_LOG_SYNC_BLOCK: $ZGS_LOG_SYNC_BLOCK"
+echo "STORAGE_RPC_ENDPOINT: $STORAGE_RPC_ENDPOINT"
+echo "BLOCKCHAIN_RPC_ENDPOINT: $BLOCKCHAIN_RPC_ENDPOINT"
+echo "LOG_CONTRACT_ADDRESS: $LOG_CONTRACT_ADDRESS"
+echo "MINE_CONTRACT_ADDRESS: $MINE_CONTRACT_ADDRESS"
+echo "JSON_PORT: $JSON_PORT"
+echo "JSON_RPC_ENDPOINT: $JSON_RPC_ENDPOINT"
 
 printCyan "Setting up environment variables..." && sleep 1
 set_env_var "DB_DIR" "$HOME/0g-storage-kv/db"
 set_env_var "ZGSKV_DB_DIR" "$HOME/0g-storage-kv/kv-db"
-set_env_var "ZGS_NODE_URLS" "http://127.0.0.1:5678"
+set_env_var "ZGS_NODE_URLS" "$STORAGE_RPC_ENDPOINT"
 set_env_var "ZGSKV_CONFIG_FILE" "$HOME/0g-storage-kv/run/config.toml"
 set_env_var "ZGSKV_LOG_CONFIG_FILE" "$HOME/0g-storage-kv/run/log_config"
-set_env_var "BLOCK_NUMBER" "$BLOCK_NUMBER"
+set_env_var "BLOCK_NUMBER" "$ZGS_LOG_SYNC_BLOCK"
 source ~/.bash_profile
 
-printCyan "Validating if the node URL is accessible..." && sleep 1
-if nc -zv 127.0.0.1 5678; then
-  echo "Your local storage node is reachable."
-else
-  echo "We can't reach your node."
-fi
-
 printCyan "Updating configuration file..." && sleep 1
-sed -i "s|^\s*#\?\s*db_dir\s*=.*|db_dir = \"$DB_DIR\"|" "$ZGSKV_CONFIG_FILE"
-sed -i "s|^\s*#\?\s*kv_db_dir\s*=.*|kv_db_dir = \"$ZGSKV_DB_DIR\"|" "$ZGSKV_CONFIG_FILE"
-sed -i 's|^\s*#\?\s*rpc_listen_address\s*=.*|rpc_listen_address = "0.0.0.0:6789"|' "$ZGSKV_CONFIG_FILE"
-sed -i "s|^\s*#\?\s*zgs_node_urls\s*=.*|zgs_node_urls = \"$ZGS_NODE_URLS\"|" "$ZGSKV_CONFIG_FILE"
-sed -i "s|^\s*#\?\s*log_config_file\s*=.*|log_config_file = \"$ZGSKV_LOG_CONFIG_FILE\"|" "$ZGSKV_CONFIG_FILE"
-sed -i "s|^\s*#\?\s*blockchain_rpc_endpoint\s*=.*|blockchain_rpc_endpoint = \"https://rpc-og.papadritta.com\"|" "$ZGSKV_CONFIG_FILE"
-sed -i 's|^\s*#\?\s*log_contract_address\s*=.*|log_contract_address = "0xb8F03061969da6Ad38f0a4a9f8a86bE71dA3c8E7"|' "$ZGSKV_CONFIG_FILE"
-sed -i "s|^\s*#\?\s*log_sync_start_block_number\s*=.*|log_sync_start_block_number = $BLOCK_NUMBER|" "$ZGSKV_CONFIG_FILE"
+sed -i "s|rpc_listen_address = .*|rpc_listen_address = \"0.0.0.0:6789\"|" "$ZGSKV_CONFIG_FILE"
+sed -i "s|zgs_node_urls = .*|zgs_node_urls = \"$STORAGE_RPC_ENDPOINT\"|" "$ZGSKV_CONFIG_FILE"
+sed -i "s|log_config_file = .*|log_config_file = \"$ZGSKV_LOG_CONFIG_FILE\"|" "$ZGSKV_CONFIG_FILE"
+sed -i "s|blockchain_rpc_endpoint = .*|blockchain_rpc_endpoint = \"$BLOCKCHAIN_RPC_ENDPOINT\"|" "$ZGSKV_CONFIG_FILE"
+sed -i "s|log_contract_address = .*|log_contract_address = \"$LOG_CONTRACT_ADDRESS\"|" "$ZGSKV_CONFIG_FILE"
+sed -i "s|log_sync_start_block_number = .*|log_sync_start_block_number = $ZGS_LOG_SYNC_BLOCK|" "$ZGSKV_CONFIG_FILE"
 
 printCyan "Creating systemd service file..." && sleep 1
-SERVICE_FILE="/etc/systemd/system/zgskv.service"
+SERVICE_FILE="/etc/systemd/system/zgs-kv.service"
 sudo tee $SERVICE_FILE > /dev/null <<EOF
 [Unit]
-Description=0G Storage KV Node
+Description=ZGS-KV Node
 After=network.target
 
 [Service]
 User=$USER
-Type=simple
-ExecStart=$BIN_DIR/zgs_kv --config $INSTALL_DIR/run/config.toml
+WorkingDirectory=$HOME/0g-storage-kv/run
+ExecStart=$BIN_DIR/zgs_kv --config $HOME/0g-storage-kv/run/config.toml
 Restart=on-failure
+RestartSec=10
 LimitNOFILE=65535
 
 [Install]
@@ -134,18 +143,14 @@ EOF
 
 printCyan "Reloading systemd, enabling and starting the service..." && sleep 1
 sudo systemctl daemon-reload
-sudo systemctl enable zgskv
-sudo systemctl start zgskv
+sudo systemctl enable zgs-kv
+sudo systemctl start zgs-kv
 
-printCyan "Check ZGSKV Node status..." && sleep 1
-if sudo systemctl status zgskv | grep -q "active (running)"; then
-  echo "Your ZGSKV Node is installed and works!"
-  echo "You can check ZGSKV Node status by the command 'sudo systemctl status zgskv'"
-  echo "You can check ZGSKV Logs by the command 'sudo journalctl -u zgskv -f -o cat'"
+printCyan "Check ZGS-KV Node status..." && sleep 1
+if sudo systemctl status zgs-kv | grep -q "active (running)"; then
+  echo "Your ZGS-KV Node is installed and works!"
+  echo "You can check ZGS-KV Node status by the command 'sudo systemctl status zgs-kv'"
+  echo "You can check ZGS-KV Logs by the command 'sudo journalctl -u zgs-kv -f -o cat'"
 else
-  printf "Your ZGSKV Node was not installed correctly, please reinstall by running: ./storage-kv.sh\n"
+  printf "Your ZGS-KV Node was not installed correctly, please reinstall by running: ./storage-kv.sh\n"
 fi
-
-printCyan "Next - CHECK & MONITOR STORAGE-KV NODE LOGS and you are DONE!!!" && sleep 1
-
-printf "\nTo re-run the script again, use: ./storage-kv.sh\e[0m\n"

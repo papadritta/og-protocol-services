@@ -33,9 +33,11 @@ ADDRESS=$(0gchaind keys show $WALLET_STORAGE -a --keyring-backend=test) && HEX_A
 ```
 - **Restart your zgs service and Check the logs**
 ```bash
-sudo systemctl start zgs
+sudo systemctl restart zgs
 ```
 ```bash
 tail -f ~/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d)
 ```
 ALL DONE !!!
+
+### [What next? >>>](/box/kv.md)
