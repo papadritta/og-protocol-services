@@ -87,23 +87,27 @@ else
 fi
 
 printCyan "Cloning 0G Storage Node repository..." && sleep 1
-git clone -b v0.3.1 https://github.com/0glabs/0g-storage-node.git
+git clone -b v0.3.2 https://github.com/0glabs/0g-storage-node.git
 
 printCyan "Building the project..." && sleep 1
 cd $HOME/0g-storage-node
+git checkout tags/v0.3.2
 git submodule update --init
 cargo build --release
 
 printCyan "Setting up environment variables..." && sleep 1
-set_env_var "ZGS_CONFIG_FILE" "$HOME/0g-storage-node/run/config.toml"
 set_env_var "ZGS_LOG_DIR" "$HOME/0g-storage-node/run/log"
 set_env_var "ZGS_LOG_CONFIG_FILE" "$HOME/0g-storage-node/run/log_config"
-set_env_var "ZGS_CONTRACT_ADDRESS" "0x2b8bC93071A6f8740867A7544Ad6653AdEB7D919"
-set_env_var "ZGS_MINE_CONTRACT" "0x228aCfB30B839b269557214216eA4162db24445d"
-set_env_var "ZGS_LOG_SYNC_BLOCK" "334797"
-set_env_var "ZGS_RPC" "https://rpc-og.papadritta.com"
+set_env_var "ZGS_CONFIG_FILE" "$HOME/0g-storage-node/run/config.toml"
+set_env_var "ZGS_CONTRACT_ADDRESS" "0x8873cc79c5b3b5666535C825205C9a128B1D75F1"
+set_env_var "ZGS_MINE_CONTRACT" "0x85F6722319538A805ED5733c5F4882d96F1C7384"
+set_env_var "ZGS_LOG_SYNC_BLOCK" "802"
+set_env_var "WATCH_LOOP_WAIT_TIME_MS" "1000"
 set_env_var "WALLET_STORAGE" "storage"
+set_env_var "ZGS_RPC" "https://rpc-og.papadritta.com"
 source ~/.bash_profile
+
+ZGS_IP=$(wget -qO- eth0.me)
 
 sed -i '
 s|# network_dir = "network"|network_dir = "network"|
@@ -115,14 +119,18 @@ s|# rpc_enabled = true|rpc_enabled = true|
 s|# db_dir = "db"|db_dir = "db"|
 s|# log_config_file = "log_config"|log_config_file = "log_config"|
 s|# log_directory = "log"|log_directory = "log"|
+s|# watch_loop_wait_time_ms = 500|watch_loop_wait_time_ms = 15000|g
+s|network_enr_address = ""|network_enr_address = "'"$ZGS_IP"'"|g
 ' $HOME/0g-storage-node/run/config.toml
 
 sed -i '
-s|^network_boot_nodes = \".*\"|network_boot_nodes = \["/ip4/54.219.26.22/udp/1234/p2p/16Uiu2HAmTVDGNhkHD98zDnJxQWu3i1FL1aFYeh9wiQTNu4pDCgps","/ip4/52.52.127.117/udp/1234/p2p/16Uiu2HAkzRjxK2gorngB1Xq84qDrT4hSVznYDHj6BkbaE4SGx9oS"\]|
-s|^log_contract_address = ".*"|log_contract_address = "'"$ZGS_CONTRACT_ADDRESS"'"|
-s|^mine_contract_address = ".*"|mine_contract_address = "'"$ZGS_MINE_CONTRACT"'"|
-s|^log_sync_start_block_number = .*|log_sync_start_block_number = '"$ZGS_LOG_SYNC_BLOCK"'|
-s|^blockchain_rpc_endpoint = \".*|blockchain_rpc_endpoint = "'"$ZGS_RPC"'"|
+s|^log_sync_start_block_number = .*|log_sync_start_block_number = '"$ZGS_LOG_SYNC_BLOCK"'|g
+s|^log_config_file = .*|log_config_file = "'"$ZGS_LOG_CONFIG_FILE"'"|g
+s|^log_directory = .*|log_directory = "'"$ZGS_LOG_DIR"'"|g
+s|^mine_contract_address = .*|mine_contract_address = "'"$ZGS_MINE_CONTRACT"'"|g
+s|^log_contract_address = .*|log_contract_address = "'"$ZGS_CONTRACT_ADDRESS"'"|g
+s|^watch_loop_wait_time_ms = .*|watch_loop_wait_time_ms = '"$WATCH_LOOP_WAIT_TIME_MS"'|g
+s|^blockchain_rpc_endpoint = .*|blockchain_rpc_endpoint = '"\"$ZGS_RPC\""'|g
 ' $HOME/0g-storage-node/run/config.toml
 
 update_config() {
