@@ -103,8 +103,6 @@ ADDRESS=$(0gchaind keys show $WALLET_STORAGE -a --keyring-backend=test) && HEX_A
 sudo systemctl start zgs
 ```
 ```
-LATEST_LOG=$(ls ~/0g-storage-node/run/log/zgs.log.* | sort | tail -n 1)
-echo -e "\ntail -f $LATEST_LOG"
-tail -f "$LATEST_LOG"
+tail -f ~/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d)
 ```
 ALL DONE !!!

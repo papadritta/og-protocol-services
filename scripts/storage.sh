@@ -269,5 +269,6 @@ printCyan "After requesting tokens from the faucet: Restart the service" && slee
 echo -e "\nsudo systemctl start zgs"
 
 printCyan "Next - CHECK & MONITOR STORAGE NODE LOGS and you are DONE!!!" && sleep 1
+echo -e "\tail -f ~/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d)"
 
 printf "\nTo re-run the script again, use: ./storage.sh\e[0m\n"
