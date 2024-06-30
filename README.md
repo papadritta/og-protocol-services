@@ -53,7 +53,7 @@ Services provide various endpoints for access and interaction through different 
 
 ![1](https://github.com/papadritta/og-protocol-services/assets/90826754/44003484-ed9a-4e48-a598-bfe258366c35)
 
-## Script for quick NODE OG Installation
+## Script for quick NODE OG Installation (v0.2.3)
 
 - You can use a Script for quick `NODE OG` [Installation](box/starter.md)
 
