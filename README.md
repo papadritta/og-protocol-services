@@ -36,6 +36,8 @@ This section details the specific configuration parameters set for the OG Servic
 ## Guides & Snapshots
 - **Script for quick NODE OG**: [Installation](box/starter.md)
 - **Script for quick STORAGE NODE OG**: [Installation](box/storage.md)
+- **Script for quick KV-STORAGE NODE OG**: [Installation](box/kv.md)
+- **Script for quick DA NODE OG**: [Installation](box/da.md)
 - **Fresh Snapshot**: [Update every 3 hours](box/Snapshot.md)
 
 ## Access Points
