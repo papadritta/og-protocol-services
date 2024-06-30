@@ -1,1 +1,0 @@
-restore_0gchain.sh
