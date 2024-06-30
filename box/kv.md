@@ -1,4 +1,4 @@
-## 🚀 Quick KV STORAGE NODE OG Installation Script (v1.1.0-testnet)
+## 🚀 Quick KV STORAGE NODE OG Installation Script:
 ```bash
 Chain ID: zgtendermint_16600-2
 Version of binary: v1.1.0-testnet
