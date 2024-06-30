@@ -34,7 +34,7 @@ This section details the specific configuration parameters set for the OG Servic
 ![3](https://github.com/papadritta/og-protocol-services/assets/90826754/5b4b6b87-5fd4-4e71-a0fe-c702f6b333b3)
 # Services:
 ## Guides & Snapshots
-- **Script for quick NODE OG**: [Installation v0.1.0](box/starter.md)
+- **Script for quick NODE OG**: [Installation v0.2.3](box/starter.md)
 - **Script for quick STORAGE NODE OG**: [Installation v0.3.1](box/starter.md)
 - **Fresh Snapshot**: [Update every 3 hours](box/Snapshot.md)
 
