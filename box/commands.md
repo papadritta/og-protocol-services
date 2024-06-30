@@ -1,1 +1,7 @@
-commands.md
+## 🚀 NODE OG COMMANDS:
+
+## 🚀 STORAGE NODE OG COMMANDS:
+
+## 🚀 KV STORAGE NODE OG COMMANDS:
+
+## 🚀 DA NODE OG COMMANDS:
