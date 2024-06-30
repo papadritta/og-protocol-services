@@ -19,18 +19,6 @@ Chain Id: zgtendermint_16600-2
 - 0G Newton explorer: [https://chainscan-newton.0g.ai/](https://chainscan-newton.0g.ai/)
 - OG StorageScan: [https://storagescan-newton.0g.ai/](https://storagescan-newton.0g.ai/)
 
-## Configuration Parameters
-This section details the specific configuration parameters set for the OG Services.
-
-| Parameter          | Value                                    |
-| ------------------ | ---------------------------------------- |
-| `indexing`         | kv                                       |
-| `pruning`          | custom (100/10)                          |
-| `min-retain-blocks`| 0                                        |
-| `snapshot-interval`| 1200                                     |
-| `snapshot-keep-recent` | 2                                    |
-| `minimum-gas-prices`  | 0.00252ua0gi                          |
-
 ![3](https://github.com/papadritta/og-protocol-services/assets/90826754/5b4b6b87-5fd4-4e71-a0fe-c702f6b333b3)
 # Services:
 ## Guides & Snapshots
