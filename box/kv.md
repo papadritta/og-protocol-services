@@ -1,4 +1,6 @@
+![4](https://github.com/papadritta/og-protocol-services/assets/90826754/a3c8bb0d-5588-4185-9b92-7751c0f11f8f)
 ## 🚀 Quick KV STORAGE NODE OG Installation Script:
+
 ```bash
 Chain ID: zgtendermint_16600-2
 Version of binary: v1.1.0-testnet
