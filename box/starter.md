@@ -45,7 +45,6 @@ echo "ADDRESS_FOR_FAUCET: "0x$(0gchaind debug addr $(0gchaind keys show $WALLET_
 ```bash
 0gchaind q bank balances $(0gchaind keys show $WALLET_NAME -a) 
 ```
-
 - **Set your vars**:
 
 ```bash
