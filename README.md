@@ -35,7 +35,7 @@ This section details the specific configuration parameters set for the OG Servic
 # Services:
 ## Guides & Snapshots
 - **Script for quick NODE OG**: [Installation](box/starter.md)
-- **Script for quick STORAGE NODE OG**: [Installation](box/starter.md)
+- **Script for quick STORAGE NODE OG**: [Installation](box/storage.md)
 - **Fresh Snapshot**: [Update every 3 hours](box/Snapshot.md)
 
 ## Access Points
@@ -50,32 +50,3 @@ Services provide various endpoints for access and interaction through different 
 - **WebSocket (WSS)**: [ws://wss-og.papadritta.com](ws://wss-og.papadritta.com)
 - **kv**: [https://kv-og.papadritta.com](https://kv-og.papadritta.com)
 - **Storage**: [https://storage-og.papadritta.com](https://storage-og.papadritta.com)
-
-![1](https://github.com/papadritta/og-protocol-services/assets/90826754/44003484-ed9a-4e48-a598-bfe258366c35)
-
-## Script for quick NODE OG Installation (v0.2.3)
-
-- You can use a Script for quick `NODE OG` [Installation](box/starter.md)
-
->Tested on Ubuntu 24.04 LTS (GNU/Linux 6.8.0-31-generic x86_64)
-
-#### Check node sync status
-```
-0gchaind status | jq '.sync_info'
-```
-> check node status > false > [add/check vars](configs/vars.properties) > [Create a Validator](configs/Validator.properties)
-
-#### Wait until the node is fully synced or download the Snapshot 
-
-- **Fresh Snapshot**: [Update every 3 hours](box/Snapshot.md)
-
-#### Check lastest block
-```
-curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://rpc-og.papadritta.com | jq -r '.result' | xargs printf "%d\n"
-```
-
-![2](https://github.com/papadritta/og-protocol-services/assets/90826754/2afad023-c7f6-49c1-a2d0-fde81d6133b0)
-
-## Script for quick STORAGE NODE OG (v0.3.2) Installation Run on the same server with NODE OG.
-
-- You can use a Script for quick `STORAGE NODE OG` [Installation](box/starter.md)
