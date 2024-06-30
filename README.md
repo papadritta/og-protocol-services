@@ -76,7 +76,7 @@ curl -s -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","me
 
 ![2](https://github.com/papadritta/og-protocol-services/assets/90826754/2afad023-c7f6-49c1-a2d0-fde81d6133b0)
 
-## Script for quick STORAGE NODE OG Installation Run on the same server with NODE OG.
+## Script for quick STORAGE NODE OG (v0.3.2) Installation Run on the same server with NODE OG.
 
 - You can use a Script for quick `STORAGE NODE OG` [Installation](box/starter.md)
 
