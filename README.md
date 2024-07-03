@@ -32,7 +32,6 @@ Chain Id: zgtendermint_16600-2
 Services provide various endpoints for access and interaction through different protocols:
 
 - **RPC**: [https://rpc1-og.papadritta.com](https://rpc1-og.papadritta.com)
-- **RPC**: [https://rpc2-og.papadritta.com](https://rpc2-og.papadritta.com)
 
 - **RPC(JSON)**: [https://rpc-og.papadritta.com](https://rpc-og.papadritta.com)
 - **API**: [https://api-og.papadritta.com](https://api-og.papadritta.com)
