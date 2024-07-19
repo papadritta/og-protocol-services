@@ -2,7 +2,7 @@
 ## 🚀 Quick STORAGE NODE OG Installation Script:
 ```bash
 Chain ID: zgtendermint_16600-2
-Version of binary: v0.3.2
+Version of binary: v0.3.4
 Name of binary: zgs_node
 Systemd service: zgs.service
 ```
