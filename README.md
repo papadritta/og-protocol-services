@@ -26,7 +26,7 @@ Chain Id: zgtendermint_16600-2
 - **Script for quick STORAGE NODE OG**: [Installation](box/storage.md)
 - **Script for quick KV-STORAGE NODE OG**: [Installation](box/kv.md)
 - **Script for quick DA NODE OG**: [Installation](box/da.md)
-- **Fresh Snapshot**: [Update every 3 hours](box/Snapshot.md)
+- **Fresh Snapshot**: [Update every 3 hours](box/Snapshot.md) - Temporarily Unavailable
 
 ## Access Points
 Services provide various endpoints for access and interaction through different protocols:
