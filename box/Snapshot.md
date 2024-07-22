@@ -1,4 +1,4 @@
-## **Fresh Snapshot** Update every 3 hours
+## **Fresh Snapshot** Update every 3 hours - Temporarily Unavailable
 ![OG_github](https://github.com/papadritta/og-protocol-services/assets/90826754/1412c0e5-c3bc-475b-b80f-ff3eb6f94e21)
 ## How to Use:
 
